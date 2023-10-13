@@ -28,7 +28,7 @@
                     <span class="avatar-form image-picker">
                         <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
                         <label for="avatar" class="d-inline-block">
-                            <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                          <x-thumbnail :filename="$user->avatar_file_name" type="images" />
                         </label>
                     </span>
 
