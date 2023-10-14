@@ -10,8 +10,8 @@ if($type === 'products'){
 
 <div>
   @if(empty($filename))
-    <img src="{{ asset('images/avatar-default.svg')}}"  style="object-fit: cover; width: 200px; height: 200px;" class="rounded-circle">
+    <img src="{{ asset('images/avatar-default.svg')}}"  style="object-fit: cover; width: 200px; height: 200px;" >
   @else
-    <img src="{{ asset($path . $filename)}}"  style="object-fit: cover; width: 200px; height: 200px;" class="rounded-circle">
+    <img src="{{ asset($path . $filename)}}"  style="object-fit: cover; width: 200px; height: 200px;" >
   @endif
 </div>

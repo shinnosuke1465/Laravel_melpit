@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use App\Models\SecondaryCategory;
 class Item extends Model
 {
     use HasFactory;
@@ -13,5 +13,13 @@ class Item extends Model
      const STATE_SELLING = 'selling';
      // 購入済み
      const STATE_BOUGHT = 'bought';
+     public function secondaryCategory()
+     {
+         return $this->belongsTo(SecondaryCategory::class);
+     }
 
+     public function getIsStateSellingAttribute()
+     {
+         return $this->state === self::STATE_SELLING;
+     }
 }
