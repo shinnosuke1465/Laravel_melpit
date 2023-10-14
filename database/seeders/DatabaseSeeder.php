@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\SecondaryCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            ItemConditionSeeder::class,
+            PrimaryCategorySeeder::class,
+            SecondaryCategorySeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('primary_categories', function (Blueprint $table) {
             $table->id();
 
-            // ここにカラムを追加していく
+             // ここにカラムを追加していく
+             $table->string('name');
+             $table->integer('sort_no');
 
             $table->timestamps();
         });
@@ -23,17 +25,22 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('primary_category_id');
 
-            // ここにカラムを追加していく
+             // ここにカラムを追加していく
+             $table->string('name');
+             $table->integer('sort_no');
 
             $table->timestamps();
 
             $table->foreign('primary_category_id')->references('id')->on('primary_categories');
         });
 
+
          Schema::create('item_conditions', function (Blueprint $table) {
              $table->id();
 
-             // ここにカラムを追加していく
+             // ここにカラムを追加してい
+             $table->string('name');
+             $table->integer('sort_no');
 
              $table->timestamps();
          });

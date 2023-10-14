@@ -34,16 +34,16 @@
                             style="position: absolute;left: -20px;width: 11rem; display: none;" aria-labelledby="navbarDropdown">
                             <div class="py-1" role="none">
                                 <!-- アイテム -->
-                                <a class=" px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 whitespace-nowrap"
-                                    style="color: rgb(55, 65, 81); display: inline-block;" role="menuitem"
+                                <a class="dropdown-item px-2 py-2" href="{{ route('sell') }}">
+                                    <i class="fas fa-camera text-left" style="width: 30px"></i>商品を出品する
+                                </a>
+                                <a class=" px-2 py-2 dropdown-item"
+                                    role="menuitem"
                                     href="{{ route('mypage.edit-profile') }}">
                                     <i class="far fa-address-card text-left" style="width: 30px;"></i> プロフィール編集
                                 </a>
 
-                                <a class="px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                    style="
-                                display: inline-block;
-                                color: rgb(55 65 81);"
+                                <a class="px-2 py-2 dropdown-item"
                                     role="menuitem" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt text-left" style="width: 30px"></i>ログアウト

@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+
+    <link rel="shortcut icon" href="/images/logo.ico">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
