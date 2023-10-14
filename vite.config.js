@@ -12,4 +12,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            // @@@ ↓追記
+            $: "jQuery",
+        },
+    },
 });

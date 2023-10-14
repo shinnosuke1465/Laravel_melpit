@@ -27,11 +27,12 @@
                     {{-- 商品画像 --}}
                     <div>商品画像</div>
                     <span class="item-image-form image-picker">
-                        <input type="file" name="item-image" class="d-none" accept="image/png,image/jpeg,image/gif"
-                            id="item-image" />
-                        <label for="item-image" class="d-inline-block" role="button">
+                        <input type="file" name="item" class="d-none" accept="image/png,image/jpeg,image/gif"
+                            id="item"/>
+                        <label for="item" class="d-inline-block" role="button">
                             <img src="/images/item-image-default.png"
-                                style="object-fit: cover; width: 300px; height: 300px;">
+                            id = "icon_img_prv"
+                            style="object-fit: cover; width: 300px; height: 300px;">
                         </label>
                     </span>
                     @error('item-image')
@@ -68,15 +69,16 @@
                     <div class="form-group mt-3">
                         <label for="category">カテゴリ</label>
                         <select name="category" class="custom-select form-control @error('category') is-invalid @enderror">
-                          @foreach ($categories as $category)
-                          <optgroup label="{{$category->name}}">
-                              @foreach($category->secondaryCategories as $secondary)
-                                  <option value="{{$secondary->id}}" {{old('category') == $secondary->id ? 'selected' : ''}}>
-                                      {{$secondary->name}}
-                                  </option>
-                              @endforeach
-                          </optgroup>
-                      @endforeach
+                            @foreach ($categories as $category)
+                                <optgroup label="{{ $category->name }}">
+                                    @foreach ($category->secondaryCategories as $secondary)
+                                        <option value="{{ $secondary->id }}"
+                                            {{ old('category') == $secondary->id ? 'selected' : '' }}>
+                                            {{ $secondary->name }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                            @endforeach
                         </select>
                         @error('category')
                             <span class="invalid-feedback" role="alert">
