@@ -38,7 +38,7 @@ class SellController extends Controller
         //画像を選択していて確実にアップロードできていたら
         if (!is_null($imageFile) && $imageFile->isValid()) {
             //画像とフォルダ名を渡す
-            $fileNameToStore = ImageService::upload($imageFile, 'products');
+            $fileNameToStore = ImageService::productUpload($imageFile, 'products');
         }
 
         $item = new Item();
