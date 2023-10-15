@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyPage\ProfileController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\MyPage\SoldItemsController;
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,7 @@ use App\Http\Controllers\MyPage\SoldItemsController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('', [ItemsController::class,'showItems'])->name('top');
 
 Auth::routes();
 

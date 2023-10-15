@@ -1,0 +1,20 @@
+.responsive-image {
+  // .responsive-imageに対するスタイルはここに
+
+  img {
+    width: 100%; // デフォルトでは幅を100%に設定
+    height: auto; // デフォルトでは高さを自動に設定
+
+    @media (max-width: 767px) { // ビューポートが640px以下の場合
+      height: 300px; // 高さを300pxに設定
+    }
+  }
+
+  span{
+    width: 50%;
+    @media (max-width: 767px) { // ビューポートが640px以下の場合
+      width: 8rem;
+    }
+  }
+
+}

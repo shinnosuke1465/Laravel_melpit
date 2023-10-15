@@ -4,7 +4,7 @@
             <img src="/images/logo-1.png" style="height: 39px;" alt="Melpit">
         </a>
 
-        <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+        <div class="navbar-collapse flex-row-reverse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 @guest
                     {{-- 非ログイン --}}
@@ -18,7 +18,7 @@
                     {{-- ログイン済み --}}
                     <li class="nav-item dropdown ml-2">
                         {{-- ログイン情報 --}}
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button">
+                        <a id="navbarDropdown" class="flex items-center nav-link dropdown-toggle" role="button">
                             @if (!empty($user->avatar_file_name))
                                 <img src="storage/images/{{ $user->avatar_file_name }}" class="rounded-circle"
                                     style="object-fit: cover; width: 35px; height: 35px;">
@@ -30,12 +30,15 @@
                         </a>
                         <!-- ドロップダウンメニュー -->
                         <div id="dropdownMenu"
-                            class="origin-top-right absolute right-0 absolute rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
+                            class="origin-top-right right-0 absolute rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
                             style="position: absolute;left: -20px;width: 11rem; display: none;" aria-labelledby="navbarDropdown">
                             <div class="py-1" role="none">
                                 <!-- アイテム -->
                                 <a class="dropdown-item px-2 py-2" href="{{ route('sell') }}">
                                     <i class="fas fa-camera text-left" style="width: 30px"></i>商品を出品する
+                                </a>
+                                <a class="dropdown-item px-2 py-2" href="{{ route('mypage.sold-items') }}">
+                                    <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
                                 </a>
                                 <a class=" px-2 py-2 dropdown-item"
                                     role="menuitem"
