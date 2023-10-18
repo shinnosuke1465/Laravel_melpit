@@ -38,7 +38,7 @@
             @endforeach
         </div>
         <div class="flex justify-center">
-            {{ $items->withQueryString()->links() }}
+            {{ $items->links() }}
         </div>
     </div>
 
