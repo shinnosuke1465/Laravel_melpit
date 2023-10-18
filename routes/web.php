@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyPage\ProfileController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyPage\SoldItemsController;
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,8 @@ Route::get('', [ItemsController::class,'showItems'])->name('top');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('items/{item}', function () {return "商品詳細";})->name('item');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('items/{item}', [ItemsController::class,'showItemDetail'])->name('item');
 
 Route::middleware('auth')
 ->group(function () {
