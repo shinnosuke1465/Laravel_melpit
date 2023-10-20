@@ -6,6 +6,29 @@
 
         <div class="navbar-collapse flex-row-reverse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+
+                <form class="flex flex-wrap" method="GET" action="{{ route('top') }}">
+                    <div class="relative flex items-stretch">
+                        <div>
+                            <select class="form-select h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md" name="category">
+                                <option value="">全て</option>
+                                @foreach ($categories as $category)
+                                    <option value="primary:{{$category->id}}" class="font-bold">{{$category->name}}</option>
+                                    @foreach ($category->secondaryCategories as $secondary)
+                                        <option value="secondary:{{$secondary->id}}">{{$secondary->name}}</option>
+                                    @endforeach
+                                @endforeach
+                            </select>
+                        </div>
+                        <input type="text" name="keyword" class="form-input block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" aria-label="Text input with dropdown button" placeholder="キーワード検索">
+                        <div class="absolute inset-y-0 right-0 flex items-center">
+                            <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
                 @guest
                     {{-- 非ログイン --}}
                     <li class="nav-item">
@@ -20,7 +43,7 @@
                         {{-- ログイン情報 --}}
                         <a id="navbarDropdown" class="flex items-center nav-link dropdown-toggle" role="button">
                             @if (!empty($user->avatar_file_name))
-                                <img src="storage/images/{{ $user->avatar_file_name }}" class="rounded-circle"
+                                <img src="{{asset('storage/images/' .$user->avatar_file_name) }}"class="rounded-circle"
                                     style="object-fit: cover; width: 35px; height: 35px;">
                             @else
                                 <img src="/images/avatar-default.svg" class="rounded-circle"
