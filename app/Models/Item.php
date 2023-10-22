@@ -27,7 +27,7 @@ class Item extends Model
      {
          return $this->belongsTo(ItemCondition::class, 'item_condition_id');
      }
-
+//soldラベルの表示非表示のために定義
      public function getIsStateSellingAttribute()
      {
          return $this->state === self::STATE_SELLING;
