@@ -6,6 +6,7 @@ use App\Http\Controllers\SellController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyPage\SoldItemsController;
+use App\Http\Controllers\MyPage\BoughtItemsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ Route::get('items/{item}', [ItemsController::class,'showItemDetail'])->name('ite
 
 Route::middleware('auth')
 ->group(function () {
+    Route::get('items/{item}/buy', [ItemsController::class,'showBuyItemForm'])->name('item.buy');
+    Route::post('items/{item}/buy', [ItemsController::class,'buyItem'])->name('item.buy');
     Route::get('sell', [SellController::class,'showSellForm'])->name('sell');
     Route::post('sell', [SellController::class,'sellItem'])->name('sell');
     Route::get('sold-items', [SoldItemsController::class,'showSoldItems'])->name('mypage.sold-items');
@@ -37,4 +40,5 @@ Route::prefix('mypage')
     ->group(function () {
         Route::get('edit-profile', [ProfileController::class, 'showProfileEditForm'])->name('mypage.edit-profile');
         Route::post('edit-profile', [ProfileController::class,'editProfile'])->name('mypage.edit-profile');
+        Route::get('bought-items', [BoughtItemsController::class,'showBoughtItems'])->name('mypage.bought-items');
     });
